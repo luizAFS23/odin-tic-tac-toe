@@ -1,4 +1,5 @@
 const readline = require('readline');
+const prompt = require("prompt-sync")();
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -23,9 +24,6 @@ const displayGameboard = () => {
 
 const choosePosition = () =>{
     for(let i = 0; i <= main_gameboard.gameboard.length; i++){
-        while(main_gameboard.gameboard[i] == '-'){
-
-        }
         rl.question("Please choose your position on the gameboard (1/9): ", function(number){
             if(main_gameboard.gameboard[number - 1] != '-'){
                     main_gameboard.gameboard[number - 1] = "X";
@@ -37,7 +35,19 @@ const choosePosition = () =>{
 
         })
     }
-
 }
 
-choosePosition();
+const chosePosition = () =>{
+    for(let i = 0; i <= main_gameboard.gameboard.length; i++){
+        const input = prompt("Please choose your position on the gameboard (1/9): ");
+        if(main_gameboard.gameboard[input - 1] == '-'){
+            main_gameboard.gameboard[input - 1] = main_gameboard.player1;
+            displayGameboard();
+        }else{
+            console.log("This spot has already been claimed! Please choose another");
+        }
+
+    }
+}
+
+chosePosition();
