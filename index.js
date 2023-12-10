@@ -15,9 +15,18 @@ const main_gameboard = {
 }
 
 const displayGameboard = () =>{
-    console.log(main_gameboard.gameboard);
+    console.log(main_gameboard.gameboard[0], main_gameboard.gameboard[1], main_gameboard.gameboard[2]);
+    console.log(main_gameboard.gameboard[3], main_gameboard.gameboard[4], main_gameboard.gameboard[5]);
+    console.log(main_gameboard.gameboard[6], main_gameboard.gameboard[7], main_gameboard.gameboard[8]);
 }
 
+
 const choosePosition = () =>{
-    console.log("Please choose your position on the gameboard ")
+    rl.question("Please choose your position on the gameboard (1/9): ", function(number){
+        main_gameboard.gameboard[number - 1] = "X";
+        displayGameboard();
+        rl.close();
+    })
 }
+
+choosePosition();
