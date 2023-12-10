@@ -22,11 +22,22 @@ const displayGameboard = () =>{
 
 
 const choosePosition = () =>{
-    rl.question("Please choose your position on the gameboard (1/9): ", function(number){
-        main_gameboard.gameboard[number - 1] = "X";
-        displayGameboard();
-        rl.close();
-    })
+    for(let i = 0; i <= main_gameboard.gameboard.length; i++){
+        while(main_gameboard.gameboard[i] == '-'){
+            
+        }
+        rl.question("Please choose your position on the gameboard (1/9): ", function(number){
+            if(main_gameboard.gameboard[number - 1] != '-'){
+                    main_gameboard.gameboard[number - 1] = "X";
+                    displayGameboard();
+                    rl.close();
+                }else{
+                    console.log("This spot has already been claimed! Please choose another");
+                }
+
+        })
+    }
+
 }
 
 choosePosition();
