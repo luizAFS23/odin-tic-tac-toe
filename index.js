@@ -8,6 +8,8 @@ const main_gameboard = {
     player2: "O"
 }
 
+let game_on = true;
+
 const displayGameboard = () => {
     console.log(main_gameboard.gameboard[0], main_gameboard.gameboard[1], main_gameboard.gameboard[2]);
     console.log(main_gameboard.gameboard[3], main_gameboard.gameboard[4], main_gameboard.gameboard[5]);
@@ -15,7 +17,7 @@ const displayGameboard = () => {
 }
 
 
-function choosePosition(){
+function theGame(){
 
     for(let i = 0; i <= main_gameboard.gameboard.length; i++){
         const input = prompt("Please choose your position on the gameboard (1/9): ");
@@ -26,22 +28,34 @@ function choosePosition(){
             console.log("This spot has already been claimed! Please choose another");
         }
 
-    }
-
-}
-
-function enemyAI(){
-    for(let i = 0; i <= main_gameboard.gameboard.length; i++){
-        let randomIndex = Math.floor(Math.random() * (main_gameboard.gameboard.length + 1));
-        
-        if(main_gameboard.gameboard[randomIndex] == 'X') continue; else{
-            main_gameboard.gameboard.splice(randomIndex, 0, 'O');
+        let randomIndex = Math.floor(Math.random() * (main_gameboard.gameboard.length + 1)); 
+        if(main_gameboard.gameboard[randomIndex] == 'X') { continue; }else{
+            main_gameboard.gameboard[randomIndex] = main_gameboard.player2;
+            displayGameboard();
         }
+
     }
 
 }
 
+// function enemyAI(){
+//     for(let i = 0; i <= main_gameboard.gameboard.length; i++){
+//         let randomIndex = Math.floor(Math.random() * (main_gameboard.gameboard.length + 1));
+        
+//         if(main_gameboard.gameboard[randomIndex] == 'X') { continue; }else{
+//             main_gameboard.gameboard[randomIndex] = main_gameboard.player2;
+//         }
+//     }
+
+// }
 
 
-choosePosition();
-enemyAI();
+function runningGame(){
+    theGame();
+    if(main_gameboard.gameboard[0] == main_gameboard.gameboard[1] == main_gameboard.gameboard[2] != '-'){
+        game_on = false;
+
+    }
+}
+
+runningGame();
