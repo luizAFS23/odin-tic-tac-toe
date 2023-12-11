@@ -8,7 +8,6 @@ const main_gameboard = {
     player2: "O"
 }
 
-let game_on = true;
 
 const displayGameboard = () => {
     console.log(main_gameboard.gameboard[0], main_gameboard.gameboard[1], main_gameboard.gameboard[2]);
