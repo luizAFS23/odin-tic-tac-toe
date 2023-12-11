@@ -31,15 +31,17 @@ function choosePosition(){
 }
 
 function enemyAI(){
-    let randomIndex = Math.floor(Math.random() * main_gameboard.gameboard.length);
-    if(main_gameboard.gameboard[randomIndex] == 'X'){
-        console.log("ola");
-    }else{
-        console.log('eita');
+    for(let i = 0; i <= main_gameboard.gameboard.length; i++){
+        let randomIndex = Math.floor(Math.random() * (main_gameboard.gameboard.length + 1));
+        
+        if(main_gameboard.gameboard[randomIndex] == 'X') continue; else{
+            main_gameboard.gameboard.splice(randomIndex, 0, 'O');
+        }
     }
+
 }
 
 
 
-const game = choosePosition();
-game.enemyAI();
+choosePosition();
+enemyAI();
