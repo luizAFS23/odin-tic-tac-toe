@@ -1,11 +1,4 @@
-const readline = require('readline');
 const prompt = require("prompt-sync")();
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
 
 const main_gameboard = {
     gameboard: ['-', '-', '-',
@@ -22,22 +15,8 @@ const displayGameboard = () => {
 }
 
 
-const choosePosition = () =>{
-    for(let i = 0; i <= main_gameboard.gameboard.length; i++){
-        rl.question("Please choose your position on the gameboard (1/9): ", function(number){
-            if(main_gameboard.gameboard[number - 1] != '-'){
-                    main_gameboard.gameboard[number - 1] = "X";
-                    displayGameboard();
-                    rl.close();
-                }else{
-                    console.log("This spot has already been claimed! Please choose another");
-                }
+function choosePosition(){
 
-        })
-    }
-}
-
-const chosePosition = () =>{
     for(let i = 0; i <= main_gameboard.gameboard.length; i++){
         const input = prompt("Please choose your position on the gameboard (1/9): ");
         if(main_gameboard.gameboard[input - 1] == '-'){
@@ -48,6 +27,19 @@ const chosePosition = () =>{
         }
 
     }
+
 }
 
-chosePosition();
+function enemyAI(){
+    let randomIndex = Math.floor(Math.random() * main_gameboard.gameboard.length);
+    if(main_gameboard.gameboard[randomIndex] == 'X'){
+        console.log("ola");
+    }else{
+        console.log('eita');
+    }
+}
+
+
+
+const game = choosePosition();
+game.enemyAI();
