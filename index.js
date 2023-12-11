@@ -23,7 +23,6 @@ const displayGameboard = () => {
         const input = prompt("Please choose your position on the gameboard (1/9): ");
         if(main_gameboard.gameboard[input - 1] == '-'){
             main_gameboard.gameboard[input - 1] = main_gameboard.player1;
-            displayGameboard();
         }else{
             console.log("This spot has already been claimed! Please choose another");
         }
