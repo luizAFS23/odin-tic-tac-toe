@@ -32,36 +32,43 @@ const displayGameboard = () => {
             displayGameboard();
         }
 
-    }
+        if(main_gameboard.gameboard[0] == main_gameboard.gameboard[1] == main_gameboard.gameboard[2] === 'X'){
+            console.log("Congratulations, you WON!")
+            break;
+        }
+        if(main_gameboard.gameboard[3] == main_gameboard.gameboard[4] == main_gameboard.gameboard[5] == 'X'){
+            console.log("Congratulations, you WON!")
+            break;
+        }
+        if(main_gameboard.gameboard[6] == main_gameboard.gameboard[7] == main_gameboard.gameboard[8] == 'X'){
+            console.log("Congratulations, you WON!")
+            break;
+        }
+        if(main_gameboard.gameboard[0] == main_gameboard.gameboard[3] == main_gameboard.gameboard[6] == 'X'){
+            console.log("Congratulations, you WON!")
+            break;
+        }
+        if(main_gameboard.gameboard[1] == main_gameboard.gameboard[4] == main_gameboard.gameboard[7] == 'X'){
+            console.log("Congratulations, you WON!");
+            break;
+        }
+        if(main_gameboard.gameboard[2] == main_gameboard.gameboard[5] == main_gameboard.gameboard[8] == 'X'){
+            console.log("Congratulations, you WON!");
+            break;
+        }
+        if(main_gameboard.gameboard[0] == main_gameboard.gameboard[4] == main_gameboard.gameboard[8] == 'X'){
+            console.log("Congratulations, you WON!");
+            break;
+        }
+        if(main_gameboard.gameboard[2] == main_gameboard.gameboard[4] == main_gameboard.gameboard[6] == 'X'){
+            console.log("Congratulations, you WON!");
+            break;
+        }
+        if(main_gameboard.gameboard.includes('-') == false){
+            console.log("Tie");
+            break;
+        }
 
-    if(main_gameboard.gameboard[0] == main_gameboard.gameboard[1] == main_gameboard.gameboard[2] == 'X'){
-        console.log("Congratulations, you WON!")
-        return;
-    }else if(main_gameboard.gameboard[3] == main_gameboard.gameboard[4] == main_gameboard.gameboard[5] == 'X'){
-        console.log("Congratulations, you WON!")
-        return;
-    }else if(main_gameboard.gameboard[6] == main_gameboard.gameboard[7] == main_gameboard.gameboard[8] == 'X'){
-        console.log("Congratulations, you WON!")
-        return;
-    }else if(main_gameboard.gameboard[0] == main_gameboard.gameboard[3] == main_gameboard.gameboard[6] == 'X'){
-        console.log("Congratulations, you WON!")
-        return;
-    }else if(main_gameboard.gameboard[1] == main_gameboard.gameboard[4] == main_gameboard.gameboard[7] == 'X'){
-        console.log("Congratulations, you WON!");
-        return;
-    }else if(main_gameboard.gameboard[2] == main_gameboard.gameboard[5] == main_gameboard.gameboard[8] == 'X'){
-        console.log("Congratulations, you WON!");
-        return;
-    }else if(main_gameboard.gameboard[0] == main_gameboard.gameboard[4] == main_gameboard.gameboard[8] == 'X'){
-        console.log("Congratulations, you WON!");
-        return;
-    }else if(main_gameboard.gameboard[2] == main_gameboard.gameboard[4] == main_gameboard.gameboard[6] == 'X'){
-        console.log("Congratulations, you WON!");
-        return;
-    }else if(main_gameboard.gameboard.includes('-') == false){
-        console.log("Tie");
-    }else{
-        console.log("Sorry, you LOST!");
     }
 
 })();
